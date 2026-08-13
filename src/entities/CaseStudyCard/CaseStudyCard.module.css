@@ -1,0 +1,63 @@
+.root {
+  min-height: 18rem;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: var(--radius-content-card);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.company {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.metric {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  text-align: right;
+}
+
+.content {
+  display: grid;
+  align-content: center;
+  flex: 1;
+}
+
+.content p {
+  max-width: 20rem;
+  margin: 0;
+  font-size: 1.375rem;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.footer {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 767px) {
+  .root {
+    min-height: calc(248 / 3.75 * 1vw);
+    padding: calc(20 / 3.75 * 1vw);
+  }
+
+  .company {
+    font-size: calc(16 / 3.75 * 1vw);
+  }
+
+  .metric,
+  .footer {
+    font-size: calc(12 / 3.75 * 1vw);
+  }
+
+  .content p {
+    font-size: calc(20 / 3.75 * 1vw);
+  }
+}

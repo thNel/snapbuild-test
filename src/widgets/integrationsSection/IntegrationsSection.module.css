@@ -1,0 +1,124 @@
+.section {
+  display: grid;
+  gap: 3rem;
+  padding-block: var(--section-space);
+  padding-inline: var(--page-gutter);
+}
+
+.section > * {
+  width: 100%;
+  max-width: var(--content-width);
+  margin-inline: auto;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: 3rem;
+  align-items: center;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: var(--radius-content-card);
+}
+
+.copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.kicker {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.copy p {
+  max-width: 28rem;
+  margin: 0;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.diagram {
+  display: grid;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: var(--background);
+  border-radius: var(--radius-control);
+}
+
+.core {
+  display: grid;
+  min-height: 4.5rem;
+  place-items: center;
+  color: #ffffff;
+  background: #000000;
+  border-radius: var(--radius-control);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.group {
+  display: grid;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.groupLabel {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .section {
+    gap: calc(24 / 3.75 * 1vw);
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    gap: calc(20 / 3.75 * 1vw);
+    padding: calc(16 / 3.75 * 1vw);
+  }
+
+  .copy p {
+    font-size: calc(22 / 3.75 * 1vw);
+  }
+
+  .diagram {
+    gap: calc(16 / 3.75 * 1vw);
+    padding: calc(12 / 3.75 * 1vw);
+  }
+
+  .core {
+    min-height: calc(52 / 3.75 * 1vw);
+    font-size: calc(16 / 3.75 * 1vw);
+  }
+
+  .groups {
+    grid-template-columns: 1fr;
+    gap: calc(12 / 3.75 * 1vw);
+  }
+
+  .group {
+    gap: calc(8 / 3.75 * 1vw);
+  }
+
+  .groupLabel,
+  .kicker {
+    font-size: calc(12 / 3.75 * 1vw);
+  }
+}

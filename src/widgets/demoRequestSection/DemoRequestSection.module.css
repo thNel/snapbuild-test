@@ -1,0 +1,18 @@
+.section {
+  display: grid;
+  gap: 3rem;
+  padding-block: var(--section-space);
+  padding-inline: var(--page-gutter);
+}
+
+.section > * {
+  width: 100%;
+  max-width: var(--content-width);
+  margin-inline: auto;
+}
+
+@media (max-width: 767px) {
+  .section {
+    gap: calc(24 / 3.75 * 1vw);
+  }
+}
