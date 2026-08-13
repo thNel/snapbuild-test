@@ -85,6 +85,39 @@
   display: none;
 }
 
+.menuIcon {
+  position: relative;
+  display: block;
+  width: 15px;
+  height: 10px;
+  border-top: 1.5px solid #000000;
+  border-bottom: 1.5px solid #000000;
+  transition: border-color 267ms cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.menuIcon::before,
+.menuIcon::after {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 1.5px;
+  content: "";
+  background: #000000;
+  transition:
+    transform 267ms cubic-bezier(0.55, 0, 0.1, 1),
+    opacity 267ms cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.menuIcon::before {
+  transform: translateY(-50%);
+}
+
+.menuIcon::after {
+  opacity: 0;
+  transform: translateY(-50%);
+}
+
 @media (min-width: 1440px) and (max-width: 2559.98px) {
   .bar {
     width: min(calc(100% - calc(32 / 14.4 * 1vw)), calc(960 / 14.4 * 1vw));
@@ -153,32 +186,19 @@
   }
 }
 
-.sheet {
-  width: min(20rem, calc(100vw - 1rem));
-  padding: 5.5rem 1.25rem 1.25rem;
-  background: rgb(255 255 255 / 96%);
-  backdrop-filter: blur(1rem);
-}
-
-.mobileNavigation {
-  display: grid;
-}
-
-.mobileNavigation a {
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--border);
-  font-size: 1.5rem;
-  font-weight: 500;
-}
-
-.mobileCta {
-  width: 100%;
-  margin-top: 2rem;
-  color: #ffffff !important;
+.mobileMenu {
+  display: none;
+  pointer-events: auto;
 }
 
 @media (max-width: 767px) {
+  .header[data-menu-open] {
+    z-index: 60;
+  }
+
   .bar {
+    position: relative;
+    z-index: 2;
     grid-template-columns: auto 1fr;
     width: calc(100% - 1.5rem);
     min-height: 3.125rem;
@@ -210,4 +230,320 @@
     height: 36px;
     border-radius: 12px;
   }
+
+  .menuButton:hover,
+  .menuButton:focus-visible {
+    background: transparent;
+    box-shadow: none;
+    outline: none;
+  }
+
+  .mobileMenu {
+    position: fixed;
+    z-index: 1;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    height: 100dvh;
+    padding: 92px 16px 16px;
+    overflow-y: auto;
+    background: #ffffff;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .mobileMenu:not([data-open="true"]) {
+    display: none;
+  }
+
+  .mobileMenu[data-open="true"] {
+    animation: mobileMenuPanelIn 140ms ease both;
+  }
+
+  .mobileMenuLinks {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobileMenuLinks a {
+    display: block;
+    padding: 18px 0;
+    color: #000000;
+    border-bottom: 1px solid rgb(0 0 0 / 10%);
+    border-radius: 0;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: calc(36 / 28);
+  }
+
+  .mobileMenu[data-open="true"] .mobileMenuLinks a {
+    animation: mobileMenuItemIn 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .mobileMenu[data-open="true"] .mobileMenuLinks a:nth-child(1) {
+    animation-delay: 40ms;
+  }
+
+  .mobileMenu[data-open="true"] .mobileMenuLinks a:nth-child(2) {
+    animation-delay: 85ms;
+  }
+
+  .mobileMenu[data-open="true"] .mobileMenuLinks a:nth-child(3) {
+    animation-delay: 130ms;
+  }
+
+  .mobileMenu[data-open="true"] .mobileMenuLinks a:nth-child(4) {
+    animation-delay: 175ms;
+  }
+
+  .mobileMenuLinks a:hover,
+  .mobileMenuLinks a:focus-visible {
+    background: transparent;
+    outline: none;
+  }
+
+  .mobileCta {
+    width: 100%;
+    min-height: 60px;
+    margin-top: auto;
+    padding: 16px 20px;
+    color: #ffffff !important;
+    border-radius: 12px;
+    font-size: 18px;
+    background-color: #141414 !important;
+  }
+
+  .mobileMenu[data-open="true"] .mobileCta {
+    animation: mobileMenuCtaIn 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 200ms;
+  }
+
+  .mobileCta:hover,
+  .mobileCta:focus-visible {
+    background-color: #141414 !important;
+  }
+
+  .header[data-menu-open] .cta {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .header[data-menu-open] .menuIcon {
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+  }
+
+  .header[data-menu-open] .menuIcon::before {
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .header[data-menu-open] .menuIcon::after {
+    opacity: 1;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header[data-menu-open] {
+    z-index: 60;
+  }
+
+  .bar {
+    position: relative;
+    z-index: 2;
+    grid-template-columns: 1fr auto;
+    width: calc(100% - 32px);
+    min-height: 64px;
+    margin-top: 16px;
+    padding: 16px 20px;
+  }
+
+  .actions {
+    gap: 12px;
+  }
+
+  .menuButton {
+    display: inline-flex;
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+  }
+
+  .menuButton:hover,
+  .menuButton:focus-visible {
+    background: transparent;
+    box-shadow: none;
+    outline: none;
+  }
+
+  .menuIcon {
+    width: 20px;
+    height: 13.333px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+  }
+
+  .menuIcon::before,
+  .menuIcon::after {
+    height: 2px;
+  }
+
+  .mobileMenu {
+    position: fixed;
+    z-index: 1;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    height: 100dvh;
+    padding: calc(104 / 8.1 * 1vw) calc(20 / 8.1 * 1vw) calc(20 / 8.1 * 1vw);
+    overflow-y: auto;
+    background: #ffffff;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .mobileMenu:not([data-open="true"]) {
+    display: none;
+  }
+
+  .mobileMenu[data-open="true"] {
+    animation: mobileMenuPanelIn 140ms ease both;
+  }
+
+  .mobileMenuLinks {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobileMenuLinks a {
+    display: block;
+    padding: calc(20 / 8.1 * 1vw) 0;
+    color: #000000;
+    border-bottom: calc(1 / 8.1 * 1vw) solid rgb(0 0 0 / 10%);
+    border-radius: 0;
+    font-size: calc(32 / 8.1 * 1vw);
+    font-weight: 500;
+    line-height: calc(40 / 32);
+  }
+
+  .mobileMenu[data-open="true"] .mobileMenuLinks a {
+    animation: mobileMenuItemIn 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .mobileMenu[data-open="true"] .mobileMenuLinks a:nth-child(1) {
+    animation-delay: 40ms;
+  }
+
+  .mobileMenu[data-open="true"] .mobileMenuLinks a:nth-child(2) {
+    animation-delay: 85ms;
+  }
+
+  .mobileMenu[data-open="true"] .mobileMenuLinks a:nth-child(3) {
+    animation-delay: 130ms;
+  }
+
+  .mobileMenu[data-open="true"] .mobileMenuLinks a:nth-child(4) {
+    animation-delay: 175ms;
+  }
+
+  .mobileCta {
+    width: 100%;
+    min-height: calc(64 / 8.1 * 1vw);
+    margin-top: auto;
+    padding: calc(18 / 8.1 * 1vw) calc(24 / 8.1 * 1vw);
+    color: #ffffff !important;
+    border-radius: calc(12 / 8.1 * 1vw);
+    font-size: calc(20 / 8.1 * 1vw);
+    background-color: #141414 !important;
+  }
+
+  .mobileMenu[data-open="true"] .mobileCta {
+    animation: mobileMenuCtaIn 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 200ms;
+  }
+
+  .mobileCta:hover,
+  .mobileCta:focus-visible {
+    background-color: #141414 !important;
+  }
+
+  .header[data-menu-open] .cta {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .header[data-menu-open] .menuIcon {
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+  }
+
+  .header[data-menu-open] .menuIcon::before {
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .header[data-menu-open] .menuIcon::after {
+    opacity: 1;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menuIcon,
+  .menuIcon::before,
+  .menuIcon::after {
+    transition: none;
+  }
+
+  .mobileMenu[data-open="true"],
+  .mobileMenu[data-open="true"] .mobileMenuLinks a,
+  .mobileMenu[data-open="true"] .mobileCta {
+    animation: none;
+  }
+}
+
+@keyframes mobileMenuPanelIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mobileMenuItemIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes mobileMenuCtaIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+:global(html.mobile-menu-open),
+:global(html.mobile-menu-open body) {
+  overflow: hidden;
 }
