@@ -1,0 +1,17 @@
+.logo {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+}
+
+.logo img {
+  width: auto;
+  height: 1.25rem;
+}
+
+@media (max-width: 767px) {
+  .logo img {
+    width: calc(111 / 3.75 * 1vw);
+    height: 18px;
+  }
+}

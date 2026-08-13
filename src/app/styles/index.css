@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: "TT Commons Pro", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) * 0.75);
+  --radius-md: calc(var(--radius) * 0.875);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.5);
+}
+
+:root {
+  --background: #f5f5f6;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #000000;
+  --primary-foreground: #ffffff;
+  --secondary: #ffffff;
+  --secondary-foreground: #000000;
+  --muted: #eeeeef;
+  --muted-foreground: #5a5b62;
+  --accent: #ffb8cf;
+  --accent-foreground: #000000;
+  --destructive: #d92d20;
+  --border: #e6e6e7;
+  --input: #e6e6e7;
+  --ring: #000000;
+  --radius-control: 12px;
+  --radius-header: 16px;
+  --radius-content-card: 20px;
+  --radius-hero-shot: 16px;
+  --radius-use-media: calc(12 / 14.4 * 1vw);
+  --radius-cta-shell: 16px;
+  --radius-comparison: calc(20 / 14.4 * 1vw);
+  --radius: var(--radius-control);
+  --page-gutter: clamp(1rem, 2.78vw, 2.5rem);
+  --section-space: clamp(5rem, 8vw, 8rem);
+  --content-width: 90rem;
+  --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --button-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --button-duration: 400ms;
+  --gradient-brand: linear-gradient(
+    157deg,
+    #ffffff 17.71%,
+    #ffd1b9 43.16%,
+    #ffabbc 58.2%,
+    #ffb8eb 73.32%,
+    #d7d9ff 90.8%,
+    #ffffff 103.16%
+  );
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "TT Commons Pro", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a,
+label {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  color: #000000;
+  background: #ffb8cf;
+}
+
+[id] {
+  scroll-margin-top: 6.5rem;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --section-space: calc(48 / 3.75 * 1vw);
+    --radius-hero-shot: calc(6 / 3.75 * 1vw);
+    --radius-use-media: calc(6 / 3.75 * 1vw);
+    --radius-cta-shell: calc(32 / 3.75 * 1vw);
+    --radius-comparison: calc(20 / 3.75 * 1vw);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --radius-use-media: calc(12 / 8.1 * 1vw);
+    --radius-cta-shell: calc(32 / 8.1 * 1vw);
+    --radius-comparison: calc(20 / 8.1 * 1vw);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    font-size: min(1.111111vw, 28.444px);
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 2559.98px) {
+  :root {
+    --radius-control: calc(12 / 14.4 * 1vw);
+    --radius-header: calc(16 / 14.4 * 1vw);
+    --radius-content-card: calc(20 / 14.4 * 1vw);
+    --radius-hero-shot: calc(16 / 14.4 * 1vw);
+    --radius-cta-shell: calc(32 / 14.4 * 1vw);
+  }
+}
+
+@media (min-width: 2560px) {
+  :root {
+    --radius-control: 21.333px;
+    --radius-header: 28.444px;
+    --radius-content-card: 35.556px;
+    --radius-hero-shot: 28.444px;
+    --radius-use-media: 21.333px;
+    --radius-cta-shell: 56.889px;
+    --radius-comparison: 35.556px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

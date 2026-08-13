@@ -1,0 +1,19 @@
+.root {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition:
+    opacity 900ms var(--motion-ease),
+    transform 900ms var(--motion-ease);
+}
+
+.root[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    opacity: 1;
+    transform: none;
+  }
+}

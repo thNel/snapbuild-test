@@ -1,0 +1,213 @@
+.header {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  right: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.bar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: min(calc(100% - 2rem), 60rem);
+  min-height: 3.25rem;
+  margin: 1rem auto 0;
+  padding: 0.4375rem 0.5625rem 0.4375rem 0.875rem;
+  pointer-events: auto;
+  background-color: rgb(255 255 255 / 80%);
+  border: 1px solid transparent;
+  border-radius: var(--radius-header);
+  box-shadow: none;
+  backdrop-filter: blur(0.46875rem);
+  -webkit-backdrop-filter: blur(0.46875rem);
+  transition:
+    background-color 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.header[data-scrolled="true"] .bar {
+  border-color: rgb(0 0 0 / 4.3%);
+  box-shadow: 0 0.28125rem 1.03125rem rgb(29 22 40 / 5.5%);
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.navigation a {
+  padding: 0.5rem 0.625rem;
+  color: #000000;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: background-color 180ms ease;
+}
+
+.navigation a:hover,
+.navigation a:focus-visible {
+  background: rgb(0 0 0 / 4.5%);
+  outline: none;
+}
+
+.actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.25rem;
+  justify-self: end;
+}
+
+.cta {
+  min-height: 2.5rem;
+  padding-inline: 1.25rem;
+  color: #ffffff !important;
+  border-radius: var(--radius-control);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+}
+
+.cta:hover,
+.cta:focus-visible,
+.mobileCta:hover,
+.mobileCta:focus-visible {
+  background-color: #000000 !important;
+}
+
+.menuButton {
+  display: none;
+}
+
+@media (min-width: 1440px) and (max-width: 2559.98px) {
+  .bar {
+    width: min(calc(100% - calc(32 / 14.4 * 1vw)), calc(960 / 14.4 * 1vw));
+    min-height: calc(56 / 14.4 * 1vw);
+    margin-top: calc(16 / 14.4 * 1vw);
+    padding: calc(7 / 14.4 * 1vw) calc(9 / 14.4 * 1vw) calc(7 / 14.4 * 1vw)
+      calc(14 / 14.4 * 1vw);
+  }
+
+  .navigation a {
+    border-radius: calc(9 / 14.4 * 1vw);
+    font-size: calc(12 / 14.4 * 1vw);
+    padding: calc(8 / 14.4 * 1vw) calc(10 / 14.4 * 1vw);
+  }
+
+  .cta {
+    height: calc(40 / 14.4 * 1vw);
+    min-height: calc(40 / 14.4 * 1vw);
+    padding: calc(10 / 14.4 * 1vw) calc(20 / 14.4 * 1vw);
+    font-size: calc(14 / 14.4 * 1vw);
+    line-height: calc(20 / 14.4 * 1vw);
+    letter-spacing: calc(-0.5 / 14.4 * 1vw);
+  }
+}
+
+@media (min-width: 2560px) {
+  .bar {
+    width: min(calc(100% - 56.889px), 1706.667px);
+    min-height: 99.556px;
+    margin-top: 28.444px;
+    padding: 12.444px 16px 12.444px 24.889px;
+  }
+
+  .navigation a {
+    border-radius: 16px;
+    font-size: 21.333px;
+    padding: 14.222px 17.778px;
+  }
+
+  .cta {
+    height: 71.111px;
+    min-height: 71.111px;
+    padding: 17.778px 35.556px;
+    font-size: 24.889px;
+    line-height: 35.556px;
+    letter-spacing: -0.889px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1439.98px) {
+  .bar {
+    width: min(calc(100% - 32px), 960px);
+    min-height: 56px;
+    margin-top: 16px;
+    padding: 7px 9px 7px 14px;
+  }
+
+  .navigation a {
+    padding: 8px 10px;
+  }
+
+  .cta {
+    height: 40px;
+    min-height: 40px;
+    padding: 10px 20px;
+  }
+}
+
+.sheet {
+  width: min(20rem, calc(100vw - 1rem));
+  padding: 5.5rem 1.25rem 1.25rem;
+  background: rgb(255 255 255 / 96%);
+  backdrop-filter: blur(1rem);
+}
+
+.mobileNavigation {
+  display: grid;
+}
+
+.mobileNavigation a {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.mobileCta {
+  width: 100%;
+  margin-top: 2rem;
+  color: #ffffff !important;
+}
+
+@media (max-width: 767px) {
+  .bar {
+    grid-template-columns: auto 1fr;
+    width: calc(100% - 1.5rem);
+    min-height: 3.125rem;
+    margin-top: 0.75rem;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .actions {
+    margin-left: auto;
+    gap: 12px;
+  }
+
+  .cta {
+    min-height: 36px;
+    height: 36px;
+    padding: 8px 14px;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: normal;
+    border-radius: 11px;
+  }
+
+  .menuButton {
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+  }
+}

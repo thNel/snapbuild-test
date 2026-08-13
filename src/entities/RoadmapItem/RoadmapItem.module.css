@@ -1,0 +1,173 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(48 / 14.4 * 1vw);
+}
+
+.dot {
+  position: relative;
+  flex: 0 0 auto;
+  margin-left: calc(-12 / 14.4 * 1vw);
+  width: calc(32 / 14.4 * 1vw);
+  height: calc(32 / 14.4 * 1vw);
+  background: transparent;
+  border-radius: 50%;
+}
+
+.halo,
+.core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.halo {
+  width: calc(20 / 14.4 * 1vw);
+  height: calc(20 / 14.4 * 1vw);
+  background: rgb(0 0 0 / 12%);
+}
+
+.core {
+  width: calc(6 / 14.4 * 1vw);
+  height: calc(6 / 14.4 * 1vw);
+  background: rgb(0 0 0 / 60%);
+}
+
+.card[data-reached="true"] .halo {
+  background: linear-gradient(91.76deg, #ff6d3d 1.5%, #ff6ca7 56.4%, #bb6dff 103.9%);
+  opacity: 0.18;
+}
+
+.card[data-reached="true"] .core {
+  background: linear-gradient(91.76deg, #ff6d3d 1.5%, #ff6ca7 56.4%, #bb6dff 103.9%);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: calc(117 / 14.4 * 1vw);
+  padding-right: calc(64 / 14.4 * 1vw);
+}
+
+.title {
+  margin: 0;
+  color: #000000;
+  font-size: calc(16 / 14.4 * 1vw);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: calc(-0.5 / 14.4 * 1vw);
+}
+
+.description {
+  margin: calc(8 / 14.4 * 1vw) 0 0;
+  color: var(--muted-foreground);
+  font-size: calc(14 / 14.4 * 1vw);
+  font-weight: 500;
+  line-height: 1.4286;
+}
+
+.date {
+  margin: auto 0 0;
+  padding-top: calc(12 / 14.4 * 1vw);
+  color: #000000;
+  font-size: calc(14 / 14.4 * 1vw);
+  font-weight: 500;
+  line-height: 1.4286;
+}
+
+@media (max-width: 767px) {
+  .card {
+    gap: calc(24 / 3.75 * 1vw);
+  }
+
+  .dot {
+    margin-left: calc(-12 / 3.75 * 1vw);
+    width: calc(32 / 3.75 * 1vw);
+    height: calc(32 / 3.75 * 1vw);
+  }
+
+  .halo {
+    width: calc(20 / 3.75 * 1vw);
+    height: calc(20 / 3.75 * 1vw);
+  }
+
+  .core {
+    width: calc(6 / 3.75 * 1vw);
+    height: calc(6 / 3.75 * 1vw);
+  }
+
+  .body {
+    min-height: calc(117 / 3.75 * 1vw);
+    padding-right: calc(24 / 3.75 * 1vw);
+  }
+
+  .title {
+    font-size: calc(14 / 3.75 * 1vw);
+    line-height: 1.4286;
+    letter-spacing: 0;
+  }
+
+  .description,
+  .date {
+    font-size: calc(12 / 3.75 * 1vw);
+    line-height: 1.1667;
+  }
+
+  .description {
+    margin-top: calc(8 / 3.75 * 1vw);
+  }
+
+  .date {
+    padding-top: calc(12 / 3.75 * 1vw);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .card {
+    gap: calc(48 / 8.1 * 1vw);
+  }
+
+  .dot {
+    margin-left: calc(-12 / 8.1 * 1vw);
+    width: calc(32 / 8.1 * 1vw);
+    height: calc(32 / 8.1 * 1vw);
+  }
+
+  .halo {
+    width: calc(20 / 8.1 * 1vw);
+    height: calc(20 / 8.1 * 1vw);
+  }
+
+  .core {
+    width: calc(6 / 8.1 * 1vw);
+    height: calc(6 / 8.1 * 1vw);
+  }
+
+  .body {
+    min-height: calc(117 / 8.1 * 1vw);
+    padding-right: calc(64 / 8.1 * 1vw);
+  }
+
+  .title {
+    font-size: calc(16 / 8.1 * 1vw);
+    letter-spacing: calc(-0.5 / 8.1 * 1vw);
+  }
+
+  .description,
+  .date {
+    font-size: calc(14 / 8.1 * 1vw);
+  }
+
+  .description {
+    margin-top: calc(8 / 8.1 * 1vw);
+  }
+
+  .date {
+    padding-top: calc(12 / 8.1 * 1vw);
+  }
+}
