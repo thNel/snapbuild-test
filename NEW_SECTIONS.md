@@ -21,7 +21,7 @@ Logos
 Platform
   -> из чего состоит продукт
 Brand consistency (new)
-  -> как единый контекст убирает разрозненные материалы
+  -> как дизайн-система превращает правила в готовые элементы
 Workflow (new)
   -> как получается результат
 Use cases
@@ -50,55 +50,51 @@ Final CTA
 
 ## 3. Сводка секций
 
-| ID                  | Секция                                | Основная задача                   | Структурный паттерн     | Интерактивность |
-| ------------------- | ------------------------------------- | --------------------------------- | ----------------------- | --------------- |
-| `brand-consistency` | Согласованный результат вместо файлов | Показать эффект единого контекста | before/after board      | reveal/hover    |
-| `workflow`          | Один запрос - весь комплект           | Показать широту результата        | brief + output rail     | reveal/drag     |
-| `team-scenarios`    | Единый штаб кампании                  | Показать общий рабочий контекст   | role cards + workspace  | hover/reveal    |
-| `case-studies`      | Материалы, которые уже работают       | Дать социальное доказательство    | quote/metric rail       | carousel/drag   |
-| `quality-control`   | Качество видно до публикации          | Показать контроль результата      | review board + previews | hover/reveal    |
+| ID                  | Секция                                  | Основная задача                 | Структурный паттерн      | Интерактивность |
+| ------------------- | --------------------------------------- | ------------------------------- | ------------------------ | --------------- |
+| `brand-consistency` | Дизайн-система, которая работает за вас | Показать живые правила бренда   | token lab + live preview | tabs/reveal     |
+| `workflow`          | Один запрос - весь комплект             | Показать широту результата      | brief + output rail      | reveal/drag     |
+| `team-scenarios`    | Единый штаб кампании                    | Показать общий рабочий контекст | role cards + workspace   | hover/reveal    |
+| `case-studies`      | Материалы, которые уже работают         | Дать социальное доказательство  | quote/metric rail        | carousel/drag   |
+| `quality-control`   | Качество видно до публикации            | Показать контроль результата    | review board + previews  | hover/reveal    |
 
-Каждая секция имеет другую геометрию: before/after board, output rail, workspace, case rail и review board. Это закрывает
+Каждая секция имеет другую геометрию: token lab, output rail, workspace, case rail и review board. Это закрывает
 требование задания о различии структуры и назначения.
 
-## 4. `BrandConsistencySection` - «Согласованный результат вместо разрозненных файлов»
+## 4. `BrandConsistencySection` - «Дизайн-система, которая работает за вас»
 
 ### Смысл
 
-Показать практический эффект единого контекста кампании: команда перестаёт собирать материалы
-из разрозненных файлов и получает согласованный набор в одном рабочем пространстве.
+Показать дизайн-систему как рабочий инструмент, а не архив правил. Команда переключает нужный
+слой и сразу видит, как токены превращаются в готовый материал.
 
 ### Контент
 
-- слева - привычные, но рассинхронизированные материалы: `Презентация_final_v7`, `Баннеры_new`,
-  `Правки в чате`;
-- в центре - переход «Один контекст»;
-- справа - единый workspace с готовыми форматами и общим статусом кампании.
+- вкладка «Цвета» показывает палитру и градиентный preview;
+- вкладка «Типографика» показывает шкалу Display / Heading / Body;
+- вкладка «Компоненты» показывает CTA, status badge и divider в едином наборе.
 
 ### Layout
 
-- desktop: три колонки `before -> connector -> after`;
-- before-panel использует пунктирную границу и приглушённые подписи;
-- after-panel тёмный, с контрастными строками материалов;
-- mobile: колонки складываются вертикально, connector становится горизонтальным разделителем.
+- desktop: тёмный full-width lab с верхней строкой состояния, вкладками и двухколоночным live preview;
+- активная вкладка подчёркивается фирменным градиентом;
+- mobile: вкладки получают локальный горизонтальный scroll, preview складывается под токенами.
 
 ### Component tree
 
 ```text
 BrandConsistencySection (widget)
   SectionHeading (brand)
-  ConsistencyBoard (feature-local)
-    FragmentedMaterials (local composition)
-    ContextConnector (local composition)
-    UnifiedMaterials (local composition)
+  Tabs (shadcn primitive)
+    TokenPanel (feature-local)
+    LivePreview (feature-local)
 ```
 
 ### Motion и accessibility
 
-- три части board появляются последовательно через `Reveal`;
-- строки unified workspace получают лёгкий hover accent;
-- декоративная стрелка не является единственным носителем смысла;
-- reduced motion оставляет board статичным.
+- lab появляется через `Reveal`;
+- вкладки управляются клавиатурой через Radix Tabs;
+- reduced motion оставляет preview статичным, без потери содержимого.
 
 ## 5. `WorkflowSection` - «Один запрос - весь комплект»
 
@@ -277,7 +273,7 @@ QualityControlSection (widget)
 
 Реализуем вертикальными срезами, чтобы после каждого шага страница оставалась рабочей:
 
-1. реализовать `BrandConsistencySection` с before/after board;
+1. реализовать `BrandConsistencySection` с token lab и live preview;
 2. реализовать `WorkflowSection` с brief/output rail;
 3. реализовать `TeamScenariosSection` и role cards;
 4. реализовать `CaseStudiesSection` и проверить drag/mobile overflow;
