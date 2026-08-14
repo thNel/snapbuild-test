@@ -36,7 +36,7 @@ export function WorkflowSection() {
         <div className={styles.results}>
           <div className={styles.resultsHeader}>
             <span>Результат на выходе</span>
-            <strong>03 формата</strong>
+            <strong>05 форматов</strong>
           </div>
           <div className={styles.outputGrid}>
             {outputFormats.map((format) => (

@@ -22,4 +22,18 @@ export const outputFormats: OutputFormatData[] = [
     status: "готово",
     tone: "violet",
   },
+  {
+    description: "Визуальные материалы в том же стиле для всех точек контакта.",
+    index: "04",
+    label: "Изображения",
+    status: "готово",
+    tone: "peach",
+  },
+  {
+    description: "Короткие форматы для социальных сетей и рекламных кампаний.",
+    index: "05",
+    label: "Видео",
+    status: "готово",
+    tone: "pink",
+  },
 ];
