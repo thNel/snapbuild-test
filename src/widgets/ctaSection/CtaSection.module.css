@@ -1,6 +1,5 @@
 .section {
   position: relative;
-  margin-top: 16px;
   padding: 8rem 0;
   overflow: hidden;
   background-color: #ffffff;
@@ -155,7 +154,6 @@
   .reveal h2 {
     font-size: 40px;
   }
-
 }
 
 @keyframes blobA {

@@ -16,13 +16,17 @@ import { TeamScenariosSection } from "@/widgets/teamScenariosSection";
 import { UseCasesSection } from "@/widgets/useCasesSection";
 import { WorkflowSection } from "@/widgets/workflowSection";
 
+import styles from "./HomePage.module.css";
+
 export function HomePage() {
   return (
     <>
       <Header />
-      <main>
-        <HeroSection />
-        <LogoMarquee />
+      <main className={styles.main}>
+        <div className={styles.intro}>
+          <HeroSection />
+          <LogoMarquee />
+        </div>
         <PlatformSection />
         <WorkflowSection />
         <UseCasesSection />

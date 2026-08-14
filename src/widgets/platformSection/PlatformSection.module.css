@@ -1,5 +1,5 @@
 .section {
-  padding: 2rem var(--page-gutter) 8rem;
+  padding-inline: var(--page-gutter);
 }
 
 .section > div {
@@ -26,7 +26,7 @@
   }
 
   .section {
-    padding: calc(32 / 3.75 * 1vw) calc(16 / 3.75 * 1vw) calc(80 / 3.75 * 1vw);
+    padding-inline: calc(16 / 3.75 * 1vw);
   }
 
   .section > div {
@@ -42,7 +42,7 @@
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .section {
-    padding: calc(32 / 8.1 * 1vw) calc(20 / 8.1 * 1vw) calc(80 / 8.1 * 1vw);
+    padding-inline: calc(20 / 8.1 * 1vw);
   }
 
   .grid {

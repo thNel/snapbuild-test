@@ -1,5 +1,5 @@
 .footer {
-  margin-top: 16px;
+  margin-top: var(--section-gap);
   padding: 4rem var(--page-gutter);
   font-size: 0.875rem;
 }
@@ -83,7 +83,7 @@
 
 @media (max-width: 767px) {
   .footer {
-    margin-top: 0;
+    margin-top: var(--section-gap);
     padding: calc(48 / 3.75 * 1vw) calc(16 / 3.75 * 1vw);
   }
 

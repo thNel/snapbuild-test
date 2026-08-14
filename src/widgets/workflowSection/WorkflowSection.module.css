@@ -1,7 +1,6 @@
 .section {
   display: grid;
   gap: 4rem;
-  padding-block: var(--section-space);
   padding-inline: var(--page-gutter);
 }
 
@@ -142,7 +141,6 @@
 @media (max-width: 767px) {
   .section {
     gap: calc(32 / 3.75 * 1vw);
-    padding-block: var(--section-space);
   }
 
   .composition {

@@ -46,19 +46,20 @@ Snapbuild выглядит как спокойный светлый продук
 
 ### 3.2. Базовые токены
 
-| Роль                 | Токен                  | Значение baseline |
-| -------------------- | ---------------------- | ----------------- |
-| Фон страницы         | `--background`         | `#f5f5f6`         |
-| Основной текст       | `--foreground`         | `#000000`         |
-| Белая поверхность    | `--card` / `--popover` | `#ffffff`         |
-| Приглушённый текст   | `--muted-foreground`   | `#5a5b62`         |
-| Тонкая граница       | `--border`             | `#e6e6e7`         |
-| Мягкий muted surface | `--muted`              | `#eeeeef`         |
-| Primary control      | `--primary`            | `#000000`         |
-| Текст на primary     | `--primary-foreground` | `#ffffff`         |
-| Вторичная surface    | `--secondary`          | `#ffffff`         |
-| Брендовый акцент     | `--accent`             | `#ffb8cf`         |
-| Focus ring           | `--ring`               | `#000000`         |
+| Роль                 | Токен                  | Значение baseline        |
+| -------------------- | ---------------------- | ------------------------ |
+| Фон страницы         | `--background`         | `#f5f5f6`                |
+| Основной текст       | `--foreground`         | `#000000`                |
+| Белая поверхность    | `--card` / `--popover` | `#ffffff`                |
+| Приглушённый текст   | `--muted-foreground`   | `#5a5b62`                |
+| Тонкая граница       | `--border`             | `#e6e6e7`                |
+| Мягкий muted surface | `--muted`              | `#eeeeef`                |
+| Primary control      | `--primary`            | `#000000`                |
+| Текст на primary     | `--primary-foreground` | `#ffffff`                |
+| Вторичная surface    | `--secondary`          | `#ffffff`                |
+| Брендовый акцент     | `--accent`             | `#ffb8cf`                |
+| Focus ring           | `--ring`               | `#000000`                |
+| Межсекционный ритм   | `--section-gap`        | `clamp(3rem, 4vw, 5rem)` |
 
 Основной брендовый градиент: `--gradient-brand` в `index.css`.
 
@@ -111,7 +112,9 @@ Snapbuild выглядит как спокойный светлый продук
 Стандартный section contract:
 
 - внешний горизонтальный gutter задаёт widget;
-- внешний vertical rhythm задаёт порядок widgets/page;
+- внешний vertical rhythm задаёт `main` как `flex-column` с единым `gap: var(--section-gap)`;
+- hero и logo marquee объединены в intro-группу без искусственного gap между ними;
+- секция не использует вертикальный padding для компенсации соседнего блока;
 - внутренний `gap` принадлежит widget;
 - не добавляем margin к entity, чтобы компенсировать неправильный layout родителя.
 

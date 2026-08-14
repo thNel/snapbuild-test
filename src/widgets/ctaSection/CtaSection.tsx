@@ -8,7 +8,7 @@ const builderUrl =
 
 export function CtaSection() {
   return (
-    <section className={styles.section} id="cta">
+    <section className={styles.section} data-page-shell="cta" id="cta">
       <span aria-hidden="true" className={styles.shine} />
       <Reveal className={styles.reveal}>
         <h2>
