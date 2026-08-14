@@ -1,4 +1,5 @@
 import { CookieConsent } from "@/features/cookieConsent";
+import { BrandConsistencySection } from "@/widgets/brandConsistencySection";
 import { CaseStudiesSection } from "@/widgets/caseStudiesSection";
 import { ComparisonSection } from "@/widgets/comparisonSection";
 import { CtaSection } from "@/widgets/ctaSection";
@@ -27,6 +28,7 @@ export function HomePage() {
           <LogoMarquee />
         </div>
         <PlatformSection />
+        <BrandConsistencySection />
         <WorkflowSection />
         <UseCasesSection />
         <TeamScenariosSection />

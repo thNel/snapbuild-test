@@ -159,8 +159,12 @@
     background-origin: padding-box, border-box;
     background-clip: padding-box, border-box;
     background-repeat: no-repeat;
-    background-size: 100% 100%, 100% 92.8vw;
-    background-position: 0 0, 0 0;
+    background-size:
+      100% 100%,
+      100% 92.8vw;
+    background-position:
+      0 0,
+      0 0;
   }
 
   .table thead .featured {
@@ -171,8 +175,12 @@
     background-origin: padding-box, border-box;
     background-clip: padding-box, border-box;
     background-repeat: no-repeat;
-    background-size: 100% 100%, 100% 92.8vw;
-    background-position: 0 0, 0 0;
+    background-size:
+      100% 100%,
+      100% 92.8vw;
+    background-position:
+      0 0,
+      0 0;
   }
 
   .table thead th:first-child {
@@ -184,19 +192,27 @@
   }
 
   .table tbody tr:nth-child(1) .featured {
-    background-position: 0 0, 0 -16vw;
+    background-position:
+      0 0,
+      0 -16vw;
   }
 
   .table tbody tr:nth-child(2) .featured {
-    background-position: 0 0, 0 -35.2vw;
+    background-position:
+      0 0,
+      0 -35.2vw;
   }
 
   .table tbody tr:nth-child(3) .featured {
-    background-position: 0 0, 0 -54.4vw;
+    background-position:
+      0 0,
+      0 -54.4vw;
   }
 
   .table tbody tr:nth-child(4) .featured {
-    background-position: 0 0, 0 -73.6vw;
+    background-position:
+      0 0,
+      0 -73.6vw;
   }
 
   .table th:nth-child(2),

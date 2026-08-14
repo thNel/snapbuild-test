@@ -19,13 +19,7 @@ function AccordionItem({
   className,
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Item>) {
-  return (
-    <AccordionPrimitive.Item
-      data-slot="accordion-item"
-      className={className}
-      {...props}
-    />
-  );
+  return <AccordionPrimitive.Item data-slot="accordion-item" className={className} {...props} />;
 }
 
 function AccordionTrigger({
@@ -38,7 +32,7 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "group/accordion-trigger flex w-full items-start justify-between border-0 bg-transparent text-left outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+          "group/accordion-trigger focus-visible:ring-ring flex w-full items-start justify-between border-0 bg-transparent text-left outline-none focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50",
           className,
         )}
         {...props}

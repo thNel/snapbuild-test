@@ -19,38 +19,16 @@ function Card({
 
 function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
-    <div
-      data-slot="card-header"
-      className={cn("group/card-header grid", className)}
-      {...props}
-    />
-  );
-}
-
-function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="card-title"
-      className={className}
-      {...props}
-    />
+    <div data-slot="card-header" className={cn("group/card-header grid", className)} {...props} />
   );
 }
 
 function CardContent({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div data-slot="card-content" className={className} {...props} />
-  );
+  return <div data-slot="card-content" className={className} {...props} />;
 }
 
 function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="card-footer"
-      className={cn("flex items-center", className)}
-      {...props}
-    />
-  );
+  return <div data-slot="card-footer" className={cn("flex items-center", className)} {...props} />;
 }
 
-export { Card, CardContent, CardFooter, CardHeader, CardTitle };
+export { Card, CardContent, CardFooter, CardHeader };
