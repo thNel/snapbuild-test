@@ -18,7 +18,7 @@ export function HeroSection() {
           </p>
           <Button asChild className={styles.cta} variant="secondary">
             <a href={builderUrl}>
-              <ButtonLabel>Создать материал</ButtonLabel>
+              <ButtonLabel>Начать сейчас</ButtonLabel>
             </a>
           </Button>
         </div>

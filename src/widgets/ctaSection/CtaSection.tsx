@@ -27,7 +27,7 @@ export function CtaSection() {
         </p>
         <Button asChild variant="secondary">
           <a href={builderUrl}>
-            <ButtonLabel>Перейти к созданию</ButtonLabel>
+            <ButtonLabel>Начать сейчас</ButtonLabel>
           </a>
         </Button>
       </Reveal>
