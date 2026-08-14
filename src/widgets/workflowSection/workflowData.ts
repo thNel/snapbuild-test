@@ -1,24 +1,25 @@
-import type { WorkflowStepData } from "@/entities/WorkflowStep";
+import type { OutputFormatData } from "@/entities/OutputFormat";
 
-export const workflowSteps: WorkflowStepData[] = [
+export const outputFormats: OutputFormatData[] = [
   {
-    description: "Подключите готовую библиотеку компонентов и фирменные правила.",
+    description: "Страница с готовой структурой и вашими компонентами.",
     index: "01",
-    title: "Подключите дизайн-систему",
+    label: "Лендинг",
+    status: "готово",
+    tone: "peach",
   },
   {
-    description: "Опишите задачу обычным языком — платформа разложит её на материалы.",
+    description: "История запуска в формате, который удобно показать команде.",
     index: "02",
-    title: "Опишите задачу",
+    label: "Презентация",
+    status: "готово",
+    tone: "pink",
   },
   {
-    description: "Соберите баннеры, презентацию и лендинг в одном согласованном стиле.",
+    description: "Набор адаптаций для каналов без ручной пересборки.",
     index: "03",
-    title: "Соберите набор материалов",
-  },
-  {
-    description: "Передайте результат команде или сразу опубликуйте его в нужном канале.",
-    index: "04",
-    title: "Передайте в работу",
+    label: "Баннеры",
+    status: "готово",
+    tone: "violet",
   },
 ];
