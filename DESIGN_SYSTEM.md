@@ -46,20 +46,20 @@ Snapbuild выглядит как спокойный светлый продук
 
 ### 3.2. Базовые токены
 
-| Роль                 | Токен                  | Значение baseline        |
-| -------------------- | ---------------------- | ------------------------ |
-| Фон страницы         | `--background`         | `#f5f5f6`                |
-| Основной текст       | `--foreground`         | `#000000`                |
-| Белая поверхность    | `--card` / `--popover` | `#ffffff`                |
-| Приглушённый текст   | `--muted-foreground`   | `#5a5b62`                |
-| Тонкая граница       | `--border`             | `#e6e6e7`                |
-| Мягкий muted surface | `--muted`              | `#eeeeef`                |
-| Primary control      | `--primary`            | `#000000`                |
-| Текст на primary     | `--primary-foreground` | `#ffffff`                |
-| Вторичная surface    | `--secondary`          | `#ffffff`                |
-| Брендовый акцент     | `--accent`             | `#ffb8cf`                |
-| Focus ring           | `--ring`               | `#000000`                |
-| Межсекционный ритм   | `--section-gap`        | `clamp(3rem, 4vw, 5rem)` |
+| Роль                 | Токен                  | Значение baseline         |
+| -------------------- | ---------------------- | ------------------------- |
+| Фон страницы         | `--background`         | `#f5f5f6`                 |
+| Основной текст       | `--foreground`         | `#000000`                 |
+| Белая поверхность    | `--card` / `--popover` | `#ffffff`                 |
+| Приглушённый текст   | `--muted-foreground`   | `#5a5b62`                 |
+| Тонкая граница       | `--border`             | `#e6e6e7`                 |
+| Мягкий muted surface | `--muted`              | `#eeeeef`                 |
+| Primary control      | `--primary`            | `#000000`                 |
+| Текст на primary     | `--primary-foreground` | `#ffffff`                 |
+| Вторичная surface    | `--secondary`          | `#ffffff`                 |
+| Брендовый акцент     | `--accent`             | `#ffb8cf`                 |
+| Focus ring           | `--ring`               | `#000000`                 |
+| Межсекционный ритм   | `--section-gap`        | `clamp(6rem, 8vw, 10rem)` |
 
 Основной брендовый градиент: `--gradient-brand` в `index.css`.
 

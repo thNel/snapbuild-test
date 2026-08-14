@@ -54,7 +54,7 @@
   --radius-comparison: calc(20 / 14.4 * 1vw);
   --radius: var(--radius-control);
   --page-gutter: clamp(1rem, 2.78vw, 2.5rem);
-  --section-gap: clamp(3rem, 4vw, 5rem);
+  --section-gap: clamp(6rem, 8vw, 10rem);
   --section-space: clamp(5rem, 8vw, 8rem);
   --content-width: 90rem;
   --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -135,7 +135,7 @@ svg {
 @media (max-width: 767px) {
   :root {
     --section-space: calc(48 / 3.75 * 1vw);
-    --section-gap: calc(48 / 3.75 * 1vw);
+    --section-gap: calc(96 / 3.75 * 1vw);
     --radius-hero-shot: calc(6 / 3.75 * 1vw);
     --radius-use-media: calc(6 / 3.75 * 1vw);
     --radius-cta-shell: calc(32 / 3.75 * 1vw);
@@ -148,7 +148,7 @@ svg {
     --radius-use-media: calc(12 / 8.1 * 1vw);
     --radius-cta-shell: calc(32 / 8.1 * 1vw);
     --radius-comparison: calc(20 / 8.1 * 1vw);
-    --section-gap: calc(48 / 8.1 * 1vw);
+    --section-gap: calc(96 / 8.1 * 1vw);
   }
 }
 

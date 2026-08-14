@@ -14,15 +14,3 @@
   flex-direction: column;
   gap: 0;
 }
-
-@media (max-width: 767px) {
-  .main {
-    --section-gap: calc(48 / 3.75 * 1vw);
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .main {
-    --section-gap: calc(48 / 8.1 * 1vw);
-  }
-}
