@@ -53,7 +53,7 @@ Final CTA
 | ID               | Секция                             | Основная задача                 | Структурный паттерн        | Интерактивность  |
 | ---------------- | ---------------------------------- | ------------------------------- | -------------------------- | ---------------- |
 | `workflow`       | Один запрос - весь комплект        | Показать широту результата      | brief + output board       | reveal/hover     |
-| `team-scenarios` | Один бренд - для каждой команды    | Показать пользу по ролям        | role tabs + detail panel   | tabs             |
+| `team-scenarios` | Единый штаб кампании               | Показать общий рабочий контекст | workspace + role cards     | hover/reveal     |
 | `case-studies`   | Материалы, которые уже работают    | Дать социальное доказательство  | quote/metric cards         | carousel/drag    |
 | `integrations`   | Встраивается в ваш контур          | Снять страх интеграции          | architecture split + chips | раскрытие этапов |
 | `demo-request`   | Покажите задачу - соберём сценарий | Конвертировать интерес в заявку | form card + success state  | форма            |
@@ -99,54 +99,43 @@ WorkflowSection (widget)
 - карточки результата поднимаются на hover;
 - reduced motion: карточки остаются статичными.
 
-## 5. `TeamScenariosSection` - «Один бренд - для каждой команды»
+## 5. `TeamScenariosSection` - «Единый штаб кампании»
 
 ### Смысл
 
-Показать разные jobs-to-be-done без копирования существующей секции форматов. Текущий
-`UseCasesSection` отвечает на вопрос «что создаём», новая секция отвечает «кто и зачем это
-использует».
+Показать, как разные роли работают с одним источником бренда. Текущий `UseCasesSection`
+отвечает на вопрос «что создаём», новая секция отвечает «как команда синхронизируется вокруг
+одной кампании».
 
-### Вкладки
+### Содержимое
 
-- **Маркетинг** - одна кампания, десятки форматов и адаптаций;
-- **Дизайн** - единые компоненты, пресеты и контроль визуального качества;
-- **Продажи** - презентации и материалы под конкретную аудиторию без очереди к дизайнеру.
-
-Каждая вкладка содержит:
-
-- короткий lead;
-- три outcome bullets;
-- одну крупную metric label;
-- небольшой visual accent: chip stack, mini-layout или thumbnail strip.
+- тёмная боковая панель рабочего пространства с названием кампании и состоянием синхронизации;
+- общий заголовок «Один источник правды»;
+- три role cards: маркетинг, дизайн и продажи;
+- каждая карточка содержит метрику, описание и компактные outcome chips.
 
 ### Layout
 
-- слева фиксированная вертикальная/горизонтальная группа tabs;
-- справа detail panel на белой поверхности;
-- active tab чёрный с белым текстом, inactive - transparent/white;
-- panel не меняет общую высоту при переключении: контент резервирует минимальную высоту.
-
-На mobile tabs остаются горизонтально scrollable в одной строке, panel всегда ниже tabs.
-Пункты не переставляются и не становятся активным элементом в начале списка.
+- слева тёмная sidebar-панель с навигацией по рабочему пространству;
+- справа светлая рабочая область с общей мыслью и тремя карточками ролей;
+- карточки имеют одинаковую геометрию, но разные цветовые маркеры ролей;
+- на mobile sidebar становится компактным верхним блоком, карточки идут вертикально.
 
 ### Component tree
 
 ```text
 TeamScenariosSection (widget)
   SectionHeading (brand)
-  TeamScenarioTabs (feature)
-    Tabs / TabsList / TabsTrigger / TabsContent (shadcn)
-    TeamScenario (entity)
-    OutcomeList (brand/local primitive)
+  CampaignWorkspace (feature-local)
+    WorkspaceSidebar (local composition)
+    TeamScenarioCard (entity)
 ```
 
 ### Motion и accessibility
 
-- panel content cross-fade + короткий directional slide;
-- active indicator переключается без layout jump;
-- tabs используют `aria-selected`, `aria-controls`, keyboard arrows;
-- reduced motion: только opacity или мгновенная замена.
+- sidebar и карточки reveal как единая рабочая поверхность;
+- hover поднимает только выбранную role card;
+- reduced motion: карточки остаются статичными.
 
 ## 6. `CaseStudiesSection` - «Материалы, которые уже работают»
 

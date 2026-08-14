@@ -1,0 +1,137 @@
+.root {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  min-height: 15rem;
+  padding: 1.25rem;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  transition:
+    border-color 300ms ease,
+    box-shadow 300ms ease,
+    transform 300ms var(--motion-ease);
+}
+
+.root:hover {
+  border-color: transparent;
+  box-shadow: 0 1.25rem 2.5rem rgb(0 0 0 / 9%);
+  transform: translateY(-0.25rem);
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.icon {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  color: #000000;
+  background: #ffd1bd;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.root:nth-child(2) .icon {
+  background: #ffabc8;
+}
+
+.root:nth-child(3) .icon {
+  background: #d7d9ff;
+}
+
+.header div {
+  display: grid;
+  gap: 0.125rem;
+}
+
+.header h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.header div span {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+}
+
+.arrow {
+  color: var(--muted-foreground);
+  font-size: 1.25rem;
+}
+
+.root > p {
+  max-width: 22rem;
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.root ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: end;
+  gap: 0.375rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.root li {
+  padding: 0.4rem 0.625rem;
+  color: #000000;
+  background: var(--background);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+@media (max-width: 767px) {
+  .root {
+    min-height: calc(220 / 3.75 * 1vw);
+    gap: calc(12 / 3.75 * 1vw);
+    padding: calc(14 / 3.75 * 1vw);
+  }
+
+  .header {
+    grid-template-columns: calc(36 / 3.75 * 1vw) minmax(0, 1fr) auto;
+    gap: calc(10 / 3.75 * 1vw);
+  }
+
+  .icon {
+    width: calc(36 / 3.75 * 1vw);
+    height: calc(36 / 3.75 * 1vw);
+    border-radius: calc(12 / 3.75 * 1vw);
+    font-size: calc(14 / 3.75 * 1vw);
+  }
+
+  .header h3 {
+    font-size: calc(16 / 3.75 * 1vw);
+  }
+
+  .header div span,
+  .root li {
+    font-size: calc(11 / 3.75 * 1vw);
+  }
+
+  .root > p {
+    max-width: none;
+    font-size: calc(13 / 3.75 * 1vw);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    transition: none;
+  }
+}
