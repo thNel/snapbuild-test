@@ -1,19 +1,7 @@
+import { fullNavigation } from "@/shared/config/siteNavigation";
 import { Logo } from "@/shared/ui/brand";
 
 import styles from "./Footer.module.css";
-
-const navigation = [
-  { href: "#process", label: "Продукт" },
-  { href: "#use-cases", label: "Возможности" },
-  { href: "#workflow", label: "Сценарии" },
-  { href: "#team-scenarios", label: "Команды" },
-  { href: "#case-studies", label: "Кейсы" },
-  { href: "#compare", label: "Преимущества" },
-  { href: "#quality-control", label: "Контроль качества" },
-  { href: "#features", label: "Безопасность" },
-  { href: "#roadmap", label: "Роадмап" },
-  { href: "#faq", label: "Частые вопросы" },
-];
 
 export function Footer() {
   return (
@@ -27,7 +15,7 @@ export function Footer() {
         <nav aria-label="Подвал" className={styles.links}>
           <div>
             <p>Навигация</p>
-            {navigation.map((item) => (
+            {fullNavigation.map((item) => (
               <a href={item.href} key={item.href}>
                 {item.label}
               </a>
@@ -40,7 +28,7 @@ export function Footer() {
           </div>
           <div>
             <p>Контакты</p>
-            <a href="#demo-request">Запросить демо</a>
+            <a href="mailto:hey@snapbuild.ru">Написать нам</a>
             <a href="https://t.me/snapbuild">Telegram</a>
           </div>
         </nav>

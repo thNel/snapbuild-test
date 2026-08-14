@@ -1,31 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 
+import { fullNavigation } from "@/shared/config/siteNavigation";
 import { ButtonLabel, Logo } from "@/shared/ui/brand";
 import { Button } from "@/shared/ui/primitives";
 
 import styles from "./Header.module.css";
-
-const navigation = [
-  { href: "#process", label: "Продукт" },
-  { href: "#use-cases", label: "Возможности" },
-  { href: "#workflow", label: "Сценарии" },
-  { href: "#team-scenarios", label: "Команды" },
-  { href: "#case-studies", label: "Кейсы" },
-  { href: "#quality-control", label: "Контроль качества" },
-  { href: "#features", label: "Безопасность" },
-  { href: "#faq", label: "FAQ" },
-];
-
-const mobileNavigation = [
-  { href: "#use-cases", label: "Возможности" },
-  { href: "#process", label: "Продукт" },
-  { href: "#workflow", label: "Сценарии" },
-  { href: "#team-scenarios", label: "Команды" },
-  { href: "#case-studies", label: "Кейсы" },
-  { href: "#quality-control", label: "Контроль качества" },
-  { href: "#features", label: "Безопасность" },
-  { href: "#faq", label: "FAQ" },
-];
 
 const builderUrl = "https://builder.snapbuild.ru/";
 
@@ -81,7 +60,7 @@ export function Header() {
         <Logo />
 
         <nav aria-label="Основная навигация" className={styles.navigation}>
-          {navigation.map((item) => (
+          {fullNavigation.map((item) => (
             <a href={item.href} key={item.href}>
               {item.label}
             </a>
@@ -117,7 +96,7 @@ export function Header() {
         id="mobile-navigation"
       >
         <div className={styles.mobileMenuLinks}>
-          {mobileNavigation.map((item) => (
+          {fullNavigation.map((item) => (
             <a href={item.href} key={item.href} onClick={() => setIsMenuOpen(false)}>
               {item.label}
             </a>

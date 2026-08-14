@@ -265,14 +265,12 @@ shadcn primitive
           -> page
 ```
 
-Пример для формы:
+Пример для review board:
 
 ```text
-Input / Textarea / Label / Button
-  -> Field / FormMessage
-    -> DemoRequestForm
-      -> DemoRequestSection
-        -> HomePage
+ReviewPreview (entity)
+  -> QualityControlSection (widget)
+    -> HomePage
 ```
 
 Правила:

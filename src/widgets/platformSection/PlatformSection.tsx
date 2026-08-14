@@ -27,7 +27,7 @@ const cards = [
 
 export function PlatformSection() {
   return (
-    <section className={styles.section} id="process">
+    <section className={styles.section} id="platform">
       <Reveal>
         <SectionHeading
           description="Сайты, изображения, видео, баннеры и презентации — из одной идеи, в вашем стиле"

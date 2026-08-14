@@ -2,7 +2,6 @@ import { CookieConsent } from "@/features/cookieConsent";
 import { CaseStudiesSection } from "@/widgets/caseStudiesSection";
 import { ComparisonSection } from "@/widgets/comparisonSection";
 import { CtaSection } from "@/widgets/ctaSection";
-import { DemoRequestSection } from "@/widgets/demoRequestSection";
 import { FaqSection } from "@/widgets/faqSection";
 import { Footer } from "@/widgets/footer";
 import { Header } from "@/widgets/header";
@@ -36,7 +35,6 @@ export function HomePage() {
         <QualityControlSection />
         <SecuritySection />
         <RoadmapSection />
-        <DemoRequestSection />
         <FaqSection />
         <CtaSection />
       </main>

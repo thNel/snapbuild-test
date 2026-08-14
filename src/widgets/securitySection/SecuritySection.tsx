@@ -31,7 +31,7 @@ const cards = [
 
 export function SecuritySection() {
   return (
-    <section className={styles.section} id="features">
+    <section className={styles.section} id="security">
       <Reveal>
         <SectionHeading title="Безопасность без компромиссов" />
         <div className={styles.grid}>
