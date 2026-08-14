@@ -70,7 +70,7 @@ export function Header() {
         <div className={styles.actions}>
           <Button asChild className={styles.cta} size="sm">
             <a href={builderUrl}>
-              <ButtonLabel tone="light">Начать сейчас</ButtonLabel>
+              <ButtonLabel tone="light">Открыть платформу</ButtonLabel>
             </a>
           </Button>
 
@@ -104,7 +104,7 @@ export function Header() {
         </div>
         <Button asChild className={styles.mobileCta}>
           <a href={builderUrl} onClick={() => setIsMenuOpen(false)}>
-            <ButtonLabel tone="light">Начать сейчас</ButtonLabel>
+            <ButtonLabel tone="light">Открыть платформу</ButtonLabel>
           </a>
         </Button>
       </nav>
