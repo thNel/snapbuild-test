@@ -7,9 +7,9 @@ import { FaqSection } from "@/widgets/faqSection";
 import { Footer } from "@/widgets/footer";
 import { Header } from "@/widgets/header";
 import { HeroSection } from "@/widgets/heroSection";
-import { IntegrationsSection } from "@/widgets/integrationsSection";
 import { LogoMarquee } from "@/widgets/logoMarquee";
 import { PlatformSection } from "@/widgets/platformSection";
+import { QualityControlSection } from "@/widgets/qualityControlSection";
 import { RoadmapSection } from "@/widgets/roadmapSection";
 import { SecuritySection } from "@/widgets/securitySection";
 import { TeamScenariosSection } from "@/widgets/teamScenariosSection";
@@ -33,7 +33,7 @@ export function HomePage() {
         <TeamScenariosSection />
         <CaseStudiesSection />
         <ComparisonSection />
-        <IntegrationsSection />
+        <QualityControlSection />
         <SecuritySection />
         <RoadmapSection />
         <DemoRequestSection />

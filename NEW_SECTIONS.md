@@ -30,8 +30,8 @@ Case studies (new)
   -> какой результат получают пользователи
 Comparison
   -> почему Snapbuild выбирают вместо альтернатив
-Integrations (new)
-  -> как встроить платформу в корпоративный контур
+Quality control (new)
+  -> как проверить результат до публикации
 Security
   -> почему контур безопасен
 Roadmap
@@ -50,13 +50,13 @@ Final CTA
 
 ## 3. Сводка секций
 
-| ID               | Секция                             | Основная задача                 | Структурный паттерн        | Интерактивность  |
-| ---------------- | ---------------------------------- | ------------------------------- | -------------------------- | ---------------- |
-| `workflow`       | Один запрос - весь комплект        | Показать широту результата      | brief + output board       | reveal/hover     |
-| `team-scenarios` | Единый штаб кампании               | Показать общий рабочий контекст | workspace + role cards     | hover/reveal     |
-| `case-studies`   | Материалы, которые уже работают    | Дать социальное доказательство  | quote/metric cards         | carousel/drag    |
-| `integrations`   | Встраивается в ваш контур          | Снять страх интеграции          | architecture split + chips | раскрытие этапов |
-| `demo-request`   | Покажите задачу - соберём сценарий | Конвертировать интерес в заявку | form card + success state  | форма            |
+| ID                | Секция                             | Основная задача                 | Структурный паттерн       | Интерактивность |
+| ----------------- | ---------------------------------- | ------------------------------- | ------------------------- | --------------- |
+| `workflow`        | Один запрос - весь комплект        | Показать широту результата      | brief + output board      | reveal/hover    |
+| `team-scenarios`  | Единый штаб кампании               | Показать общий рабочий контекст | workspace + role cards    | hover/reveal    |
+| `case-studies`    | Материалы, которые уже работают    | Дать социальное доказательство  | quote/metric cards        | carousel/drag   |
+| `quality-control` | Качество видно до публикации       | Показать контроль результата    | review board + previews   | hover/reveal    |
+| `demo-request`    | Покажите задачу - соберём сценарий | Конвертировать интерес в заявку | form card + success state | форма           |
 
 Каждая секция имеет другую геометрию: output board, tabs, cards, diagram и preview. Это закрывает
 требование задания о различии структуры и назначения.
@@ -187,54 +187,50 @@ CaseStudiesSection (widget)
 - active dot/indicator синхронизирован с карточкой;
 - на mobile не допускаем body-level horizontal scroll.
 
-## 7. `IntegrationsSection` - «Встраивается в ваш контур»
+## 7. `QualityControlSection` - «Качество видно до публикации»
 
 ### Смысл
 
-Секция отвечает на техническое возражение: «Нам придётся менять инфраструктуру?». Она логично
-стоит между сравнением и безопасностью.
+Показать, что брендовый контроль происходит до публикации, а не после того, как ошибка уже
+попала в рекламный канал или к клиенту.
 
 ### Контент
 
-Левая сторона:
+Левая сторона — тёмная Brand Check-панель:
 
-- подключение к существующей дизайн-системе;
-- экспорт в React/Vue/HTML/CSS;
-- GitHub/GitLab и CI/CD;
-- SSO, private cloud и корпоративные политики доступа.
+- итоговый score соответствия бренду;
+- прогресс проверки;
+- чек-лист типографики, палитры, тональности и адаптаций.
 
-Правая сторона:
+Правая сторона — review board:
 
-- компактная architecture diagram:
-  `Ваши материалы -> Snapbuild -> Design System -> Каналы публикации`;
-- chips/labels для Figma, GitHub, GitLab, CI/CD, SSO;
-- пояснение, что конкретная интеграция зависит от контура клиента.
+- название кампании и статус «Проверено»;
+- три превью: лендинг, презентация и баннеры;
+- подпись «18 правил проверено автоматически».
 
 ### Layout
 
-- split layout 5/7 или 6/6;
-- left copy block;
-- right white content card с connector lines и node markers;
-- на mobile сначала copy, затем diagram card;
-- диаграмма не должна требовать zoom и не выходит за viewport.
+- split layout 4/8;
+- left dark score panel;
+- right light review board с карточками превью;
+- на mobile score panel становится верхним блоком, превью идут вертикально;
+- board не требует zoom и не выходит за viewport.
 
 ### Component tree
 
 ```text
-IntegrationsSection (widget)
+QualityControlSection (widget)
   SectionHeading (brand)
-  IntegrationOverview (feature/local composition)
-    IntegrationNode (entity)
-    IntegrationChip (brand primitive)
-    ConnectorLine (decorative SVG/CSS)
+  ReviewBoard (feature-local)
+    BrandScore (local composition)
+    ReviewPreview (entity)
 ```
 
 ### Motion
 
-- nodes reveal по ходу линии;
-- hover/focus node показывает короткое пояснение;
-- connector не мерцает и не меняет геометрию при hover;
-- reduced motion: статичная схема.
+- score panel и review board reveal как единая композиция;
+- hover поднимает только preview card;
+- reduced motion: статичная проверка.
 
 ## 8. `DemoRequestSection` - «Покажите задачу - соберём сценарий»
 
@@ -289,7 +285,7 @@ DemoRequestSection (widget)
 1. реализовать `WorkflowSection` с brief/output board;
 2. реализовать `TeamScenariosSection` и покрыть keyboard tabs;
 3. реализовать `CaseStudiesSection` и проверить drag/keyboard/mobile overflow;
-4. реализовать `IntegrationsSection` с декоративной схемой;
+4. реализовать `QualityControlSection` с review board;
 5. реализовать `DemoRequestSection` с адаптивным preview-сценарием;
 6. встроить widgets в `HomePage` в зафиксированном порядке;
 7. обновить footer navigation и mobile navigation только после стабилизации ids;

@@ -11,7 +11,7 @@ const navigation = [
   { href: "#workflow", label: "Сценарии" },
   { href: "#team-scenarios", label: "Команды" },
   { href: "#case-studies", label: "Кейсы" },
-  { href: "#integrations", label: "Интеграции" },
+  { href: "#quality-control", label: "Контроль качества" },
   { href: "#features", label: "Безопасность" },
   { href: "#faq", label: "FAQ" },
 ];
@@ -22,7 +22,7 @@ const mobileNavigation = [
   { href: "#workflow", label: "Сценарии" },
   { href: "#team-scenarios", label: "Команды" },
   { href: "#case-studies", label: "Кейсы" },
-  { href: "#integrations", label: "Интеграции" },
+  { href: "#quality-control", label: "Контроль качества" },
   { href: "#features", label: "Безопасность" },
   { href: "#faq", label: "FAQ" },
 ];

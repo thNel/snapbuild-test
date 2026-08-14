@@ -9,7 +9,7 @@ const navigation = [
   { href: "#team-scenarios", label: "Команды" },
   { href: "#case-studies", label: "Кейсы" },
   { href: "#compare", label: "Преимущества" },
-  { href: "#integrations", label: "Интеграции" },
+  { href: "#quality-control", label: "Контроль качества" },
   { href: "#features", label: "Безопасность" },
   { href: "#roadmap", label: "Роадмап" },
   { href: "#faq", label: "Частые вопросы" },
