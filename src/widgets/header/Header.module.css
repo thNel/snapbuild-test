@@ -389,6 +389,10 @@
     gap: 12px;
   }
 
+  .navigation {
+    display: none;
+  }
+
   .menuButton {
     display: inline-flex;
     width: 48px;
