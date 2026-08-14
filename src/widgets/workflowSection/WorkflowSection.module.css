@@ -12,18 +12,24 @@
 
 .composition {
   display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  grid-template-columns: 1fr;
   gap: 1rem;
-  padding: 1rem;
-  background: #ffffff;
+  padding: 0;
+  background: transparent;
   border-radius: var(--radius-content-card);
 }
 
 .brief {
   display: grid;
-  align-content: space-between;
+  grid-template-areas:
+    "eyebrow prompt"
+    "heading prompt"
+    "copy prompt";
+  grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 1fr);
+  grid-template-rows: auto auto 1fr;
+  align-items: end;
   gap: 1.5rem;
-  min-height: 27rem;
+  min-height: 20rem;
   padding: 2rem;
   overflow: hidden;
   color: #ffffff;
@@ -32,6 +38,7 @@
 }
 
 .eyebrow {
+  grid-area: eyebrow;
   color: rgb(255 255 255 / 58%);
   font-size: 0.875rem;
   font-weight: 500;
@@ -43,6 +50,7 @@
 }
 
 .brief h3 {
+  grid-area: heading;
   max-width: 27rem;
   font-size: 2.5rem;
   font-weight: 500;
@@ -51,6 +59,7 @@
 }
 
 .brief p {
+  grid-area: copy;
   max-width: 27rem;
   color: rgb(255 255 255 / 60%);
   font-size: 1rem;
@@ -58,6 +67,8 @@
 }
 
 .prompt {
+  grid-area: prompt;
+  align-self: stretch;
   display: grid;
   gap: 0.75rem;
   padding: 1rem;
@@ -109,7 +120,8 @@
   gap: 1rem;
   min-width: 0;
   padding: 1.5rem;
-  background: var(--background);
+  background: #ffffff;
+  border: 1px solid var(--border);
   border-radius: var(--radius-control);
 }
 
@@ -150,6 +162,13 @@
   }
 
   .brief {
+    grid-template-areas:
+      "eyebrow"
+      "heading"
+      "copy"
+      "prompt";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
     min-height: calc(360 / 3.75 * 1vw);
     gap: calc(20 / 3.75 * 1vw);
     padding: calc(20 / 3.75 * 1vw);
