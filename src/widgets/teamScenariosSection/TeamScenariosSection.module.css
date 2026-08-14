@@ -13,7 +13,8 @@
 .workspace {
   --workspace-border: #d5d5d8;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-areas: "content sidebar";
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.3fr);
   gap: 0;
   overflow: hidden;
   background: #ffffff;
@@ -22,15 +23,14 @@
 }
 
 .sidebar {
-  display: grid;
-  grid-template-columns: auto minmax(10rem, 0.7fr) minmax(17rem, 1fr) auto;
-  align-items: center;
-  gap: 2rem;
-  min-height: 0;
-  padding: 1.25rem 1.5rem;
+  display: flex;
+  grid-area: sidebar;
+  flex-direction: column;
+  min-height: 31rem;
+  padding: 1.5rem;
   color: #ffffff;
   background: #1d1d21;
-  border-bottom: 1px solid rgb(255 255 255 / 12%);
+  border-left: 1px solid rgb(255 255 255 / 12%);
 }
 
 .sidebarHeader {
@@ -52,7 +52,7 @@
 .brandMark {
   display: grid;
   gap: 0.25rem;
-  margin-top: 0;
+  margin-top: 3rem;
 }
 
 .brandMark strong {
@@ -67,14 +67,13 @@
 }
 
 .workspaceNav {
-  display: flex;
-  align-items: center;
+  display: grid;
   gap: 0.25rem;
-  margin-top: 0;
+  margin-top: 3rem;
 }
 
 .workspaceNav span {
-  padding: 0.6875rem 0.75rem;
+  padding: 0.75rem 1rem;
   color: rgb(255 255 255 / 56%);
   border-radius: 0.625rem;
   font-size: 0.875rem;
@@ -90,7 +89,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  margin-top: 0;
+  margin-top: auto;
   color: rgb(255 255 255 / 46%);
   font-size: 0.75rem;
 }
@@ -124,6 +123,7 @@
 
 .content {
   display: grid;
+  grid-area: content;
   align-content: space-between;
   gap: 2rem;
   min-width: 0;
@@ -179,14 +179,20 @@
   }
 
   .workspace {
+    grid-template-areas:
+      "content"
+      "sidebar";
     grid-template-columns: 1fr;
   }
 
   .sidebar {
     grid-template-columns: 1fr auto;
+    min-height: 0;
+    display: grid;
     gap: calc(16 / 3.75 * 1vw);
     padding: calc(16 / 3.75 * 1vw);
-    border-bottom: 1px solid rgb(255 255 255 / 12%);
+    border-top: 1px solid rgb(255 255 255 / 12%);
+    border-left: 0;
   }
 
   .sidebarHeader {
