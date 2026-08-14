@@ -8,6 +8,10 @@ import styles from "./Header.module.css";
 const navigation = [
   { href: "#process", label: "Продукт" },
   { href: "#use-cases", label: "Возможности" },
+  { href: "#workflow", label: "Сценарии" },
+  { href: "#team-scenarios", label: "Команды" },
+  { href: "#case-studies", label: "Кейсы" },
+  { href: "#integrations", label: "Интеграции" },
   { href: "#features", label: "Безопасность" },
   { href: "#faq", label: "FAQ" },
 ];
@@ -15,6 +19,10 @@ const navigation = [
 const mobileNavigation = [
   { href: "#use-cases", label: "Возможности" },
   { href: "#process", label: "Продукт" },
+  { href: "#workflow", label: "Сценарии" },
+  { href: "#team-scenarios", label: "Команды" },
+  { href: "#case-studies", label: "Кейсы" },
+  { href: "#integrations", label: "Интеграции" },
   { href: "#features", label: "Безопасность" },
   { href: "#faq", label: "FAQ" },
 ];
@@ -63,7 +71,12 @@ export function Header() {
   }, [isMenuOpen]);
 
   return (
-    <header className={styles.header} data-menu-open={isMenuOpen} data-scrolled={isScrolled} ref={headerRef}>
+    <header
+      className={styles.header}
+      data-menu-open={isMenuOpen}
+      data-scrolled={isScrolled}
+      ref={headerRef}
+    >
       <div className={styles.bar}>
         <Logo />
 

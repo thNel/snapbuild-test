@@ -5,7 +5,11 @@ import styles from "./Footer.module.css";
 const navigation = [
   { href: "#process", label: "Продукт" },
   { href: "#use-cases", label: "Возможности" },
+  { href: "#workflow", label: "Сценарии" },
+  { href: "#team-scenarios", label: "Команды" },
+  { href: "#case-studies", label: "Кейсы" },
   { href: "#compare", label: "Преимущества" },
+  { href: "#integrations", label: "Интеграции" },
   { href: "#features", label: "Безопасность" },
   { href: "#roadmap", label: "Роадмап" },
   { href: "#faq", label: "Частые вопросы" },
@@ -36,7 +40,7 @@ export function Footer() {
           </div>
           <div>
             <p>Контакты</p>
-            <a href="https://t.me/ochen_darya">Запросить демо</a>
+            <a href="#demo-request">Запросить демо</a>
             <a href="https://t.me/snapbuild">Telegram</a>
           </div>
         </nav>

@@ -257,57 +257,47 @@ IntegrationsSection (widget)
 
 ### Смысл
 
-Добавить настоящую интерактивную секцию из задания: поля заявки, базовая валидация, понятные
-ошибки и состояние успешной отправки без backend.
+Вместо тяжёлой формы — визуальный сценарий запуска, который показывает ценность продукта до клика.
+Секция остаётся самостоятельной конверсионной точкой и не дублирует финальный CTA.
 
-Это не замена финальному CTA. Финальный CTA остаётся короткой конверсионной точкой, а форма
-собирает контекст задачи.
+### Содержимое
 
-### Поля
-
-- компания;
-- рабочий email;
-- что нужно создавать или адаптировать;
-- опционально - размер команды или тип материалов.
+- слева: короткое обещание результата и CTA;
+- справа: мини-превью проекта с этапами «Бриф → Стиль → Материалы»;
+- три выходных формата представлены карточками лендинга, презентации и баннеров;
+- вторичная ссылка ведёт к FAQ.
 
 ### States
 
-1. `idle` - пустая форма с подсказками;
-2. `focus` - видимый focus-visible;
-3. `invalid` - ошибка рядом с конкретным полем, без прыжка всей секции;
-4. `submitting` - disabled submit и короткий loading indicator;
-5. `success` - подтверждение, summary введённой задачи и CTA на следующий шаг;
-6. `error` - локальная ошибка отправки mock-flow с возможностью повторить.
+1. hover/focus CTA — используется общий shine и focus-visible проекта;
+2. reveal — текст и превью появляются как единая композиция;
+3. reduced motion — статичная карточка без трансформаций.
 
 ### Layout
 
 - мягкая gradient/surface shell, но не копия финального CTA;
-- слева заголовок, обещание результата и privacy note;
-- справа form card;
-- на mobile всё вертикально, form card занимает ширину контейнера;
-- submit всегда доступен без горизонтального scroll.
+- слева заголовок, обещание результата и две ссылки;
+- справа тёмное превью с шагами и форматами;
+- на mobile всё вертикально, превью занимает ширину контейнера;
+- карточки материалов не создают горизонтальный scroll.
 
 ### Component tree
 
 ```text
 DemoRequestSection (widget)
-  SectionHeading / FormIntro (brand)
-  DemoRequestForm (feature)
-    Field (brand primitive)
-      Label (shadcn)
-      Input / Textarea (shadcn)
-      FormMessage (brand primitive)
+  SectionHeading (brand)
+  LaunchScenarioPreview
+    LaunchStep[]
+    MaterialPreview[]
     Button (shadcn)
-    SuccessState (feature-local)
 ```
 
 ### Validation
 
-- company: required, минимум 2 символа;
-- email: required, базовый email format;
-- request: required, минимум 10 символов;
-- ошибки появляются после blur или submit;
-- все сообщения на русском и понятны без обращения к console.
+- CTA ведёт в builder без лишнего промежуточного шага;
+- secondary link ведёт к FAQ;
+- preview имеет понятную семантическую подпись для screen reader;
+- на 375px и 320px карточка не выходит за границы контейнера.
 
 ## 9. Порядок реализации
 
@@ -318,7 +308,7 @@ DemoRequestSection (widget)
 3. реализовать `TeamScenariosSection` и покрыть keyboard tabs;
 4. реализовать `CaseStudiesSection` и проверить drag/keyboard/mobile overflow;
 5. реализовать `IntegrationsSection` с декоративной схемой;
-6. реализовать `DemoRequestSection` с тестами состояний формы;
+6. реализовать `DemoRequestSection` с адаптивным preview-сценарием;
 7. встроить widgets в `HomePage` в зафиксированном порядке;
 8. обновить footer navigation и mobile navigation только после стабилизации ids;
 9. сделать визуальное сравнение baseline/new на 1440px, 810px и 375px;
