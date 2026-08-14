@@ -6,6 +6,10 @@ import { qualityChecks, reviewPreviews } from "./qualityControlData";
 import styles from "./QualityControlSection.module.css";
 
 export function QualityControlSection() {
+  const qualityScore = Math.round(
+    qualityChecks.reduce((total, check) => total + check.value, 0) / qualityChecks.length,
+  );
+
   return (
     <section className={styles.section} id="quality-control">
       <Reveal>
@@ -21,18 +25,26 @@ export function QualityControlSection() {
             <span>24.06.2026</span>
           </div>
           <div className={styles.score}>
-            <strong>98</strong>
+            <strong>{qualityScore}</strong>
             <span>%</span>
           </div>
           <p>соответствие правилам бренда</p>
-          <div aria-hidden="true" className={styles.progress}>
-            <span />
+          <div
+            aria-label={`Среднее соответствие ${String(qualityScore)}%`}
+            aria-valuemax={100}
+            aria-valuemin={0}
+            aria-valuenow={qualityScore}
+            className={styles.progress}
+            role="progressbar"
+          >
+            <span data-score={qualityScore} />
           </div>
           <ul className={styles.checks}>
             {qualityChecks.map((check) => (
-              <li key={check}>
+              <li key={check.label}>
                 <span aria-hidden="true">✓</span>
-                {check}
+                <span>{check.label}</span>
+                <strong>{check.value}%</strong>
               </li>
             ))}
           </ul>

@@ -1,19 +1,49 @@
 .root {
+  --review-accent: #ffbfa6;
+
   display: grid;
-  align-content: end;
-  min-height: 13rem;
+  align-content: start;
+  min-width: 0;
   padding: 1rem;
-  overflow: hidden;
   color: #000000;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--review-accent);
   border-radius: var(--radius-control);
   transition:
     transform 350ms var(--motion-ease),
-    box-shadow 350ms var(--motion-ease);
+    box-shadow 350ms var(--motion-ease),
+    border-color 350ms var(--motion-ease);
 }
 
 .root:hover {
-  box-shadow: 0 1rem 2rem rgb(0 0 0 / 10%);
+  border-color: var(--review-accent);
+  box-shadow: 0 1rem 2rem rgb(0 0 0 / 8%);
   transform: translateY(-0.25rem);
+}
+
+.cardTop,
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.cardTop > span:first-child {
+  color: var(--muted-foreground);
+  font-size: 0.6875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.scoreBadge {
+  padding: 0.25rem 0.45rem;
+  color: #28754d;
+  background: #e1f4e8;
+  border-radius: 999px;
+  font-size: 0.625rem;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .mock {
@@ -22,46 +52,45 @@
   align-content: center;
   min-height: 7rem;
   padding: 1rem;
-  margin-bottom: 1rem;
-  background: rgb(255 255 255 / 66%);
+  margin: 0.875rem 0 1rem;
+  overflow: hidden;
+  background: #f5f5f6;
+  border: 1px solid #e5e5e8;
   border-radius: 0.75rem;
-  transform: rotate(-2deg);
+}
+
+.mock::before {
+  width: 2.25rem;
+  height: 0.35rem;
+  margin-bottom: 0.35rem;
+  content: "";
+  background: var(--review-accent);
+  border-radius: 999px;
 }
 
 .mock span {
   display: block;
-  height: 0.5rem;
-  background: rgb(255 255 255 / 85%);
+  height: 0.45rem;
+  background: #d9d9de;
   border-radius: 999px;
 }
 
 .mock span:nth-child(1) {
-  width: 52%;
-  height: 1.5rem;
+  width: 72%;
+  height: 0.75rem;
+  background: #bdbdc4;
 }
 
 .mock span:nth-child(2) {
-  width: 82%;
+  width: 92%;
 }
 
 .mock span:nth-child(3) {
-  width: 68%;
+  width: 64%;
 }
 
 .mock span:nth-child(4) {
-  width: 38%;
-}
-
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-}
-
-.footer span {
-  font-size: 0.6875rem;
-  opacity: 0.58;
+  width: 42%;
 }
 
 .footer strong {
@@ -69,39 +98,51 @@
   font-weight: 500;
 }
 
+.status {
+  display: grid;
+  width: 1.25rem;
+  height: 1.25rem;
+  place-items: center;
+  color: #28754d;
+  background: #e1f4e8;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
 .root p {
   margin: 0.375rem 0 0;
+  color: var(--muted-foreground);
   font-size: 0.75rem;
   line-height: 1.3;
-  opacity: 0.62;
 }
 
 .peach {
-  background: #ffd1bd;
+  --review-accent: #ffb79c;
 }
 
 .pink {
-  background: #ffabc8;
+  --review-accent: #f88fb5;
 }
 
 .violet {
-  background: #d7d9ff;
+  --review-accent: #aeb3f2;
 }
 
 @media (max-width: 767px) {
   .root {
-    min-height: calc(190 / 3.75 * 1vw);
     padding: calc(12 / 3.75 * 1vw);
   }
 
   .mock {
     min-height: calc(92 / 3.75 * 1vw);
     padding: calc(12 / 3.75 * 1vw);
-    margin-bottom: calc(12 / 3.75 * 1vw);
+    margin-block: calc(10 / 3.75 * 1vw) calc(12 / 3.75 * 1vw);
     border-radius: calc(10 / 3.75 * 1vw);
   }
 
-  .footer span,
+  .cardTop > span:first-child,
+  .scoreBadge,
   .root p {
     font-size: calc(10 / 3.75 * 1vw);
   }

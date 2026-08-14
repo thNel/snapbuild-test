@@ -109,13 +109,24 @@
   color: #ffabc8;
 }
 
+.checks li span:nth-child(2) {
+  flex: 1;
+}
+
+.checks li strong {
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
 .canvas {
   display: grid;
   align-content: space-between;
   gap: 1.5rem;
   min-width: 0;
   padding: 2rem;
-  background: var(--background);
+  background: #f8f8f9;
 }
 
 .canvasHeader {
@@ -203,6 +214,10 @@
   .summary p,
   .checks li {
     font-size: calc(12 / 3.75 * 1vw);
+  }
+
+  .checks li strong {
+    font-size: calc(11 / 3.75 * 1vw);
   }
 
   .progress {
