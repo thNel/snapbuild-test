@@ -12,7 +12,7 @@
 
 .composition {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
   gap: 1rem;
   padding: 1rem;
   background: #ffffff;
@@ -21,15 +21,9 @@
 
 .brief {
   display: grid;
-  grid-template-areas:
-    "eyebrow prompt"
-    "heading prompt"
-    "copy prompt";
-  grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 1fr);
-  grid-template-rows: auto auto 1fr;
-  align-items: end;
+  align-content: space-between;
   gap: 1.5rem;
-  min-height: 20rem;
+  min-height: 27rem;
   padding: 2rem;
   overflow: hidden;
   color: #ffffff;
@@ -38,7 +32,6 @@
 }
 
 .eyebrow {
-  grid-area: eyebrow;
   color: rgb(255 255 255 / 58%);
   font-size: 0.875rem;
   font-weight: 500;
@@ -50,7 +43,6 @@
 }
 
 .brief h3 {
-  grid-area: heading;
   max-width: 27rem;
   font-size: 2.5rem;
   font-weight: 500;
@@ -59,7 +51,6 @@
 }
 
 .brief p {
-  grid-area: copy;
   max-width: 27rem;
   color: rgb(255 255 255 / 60%);
   font-size: 1rem;
@@ -67,8 +58,6 @@
 }
 
 .prompt {
-  grid-area: prompt;
-  align-self: stretch;
   display: grid;
   gap: 0.75rem;
   padding: 1rem;
@@ -138,28 +127,9 @@
   font-weight: 500;
 }
 
-.outputViewport {
-  min-width: 0;
-  overflow-x: auto;
-  cursor: grab;
-  scrollbar-width: none;
-  touch-action: pan-y;
-}
-
-.outputViewport[data-dragging="true"] {
-  cursor: grabbing;
-  user-select: none;
-}
-
-.outputViewport::-webkit-scrollbar {
-  display: none;
-}
-
 .outputGrid {
   display: grid;
-  grid-auto-columns: minmax(15rem, 18rem);
-  grid-auto-flow: column;
-  width: max-content;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
   align-items: end;
 }
@@ -180,13 +150,6 @@
   }
 
   .brief {
-    grid-template-areas:
-      "eyebrow"
-      "heading"
-      "copy"
-      "prompt";
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
     min-height: calc(360 / 3.75 * 1vw);
     gap: calc(20 / 3.75 * 1vw);
     padding: calc(20 / 3.75 * 1vw);
@@ -230,7 +193,7 @@
   }
 
   .outputGrid {
-    grid-auto-columns: calc(260 / 3.75 * 1vw);
+    grid-template-columns: 1fr;
     gap: calc(8 / 3.75 * 1vw);
   }
 
