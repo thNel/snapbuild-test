@@ -42,7 +42,6 @@
 
 .grid > :first-child {
   min-height: 22rem;
-  border: 1px solid #ffb8cf;
 }
 
 @media (max-width: 767px) {
