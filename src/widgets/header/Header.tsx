@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { fullNavigation } from "@/shared/config/siteNavigation";
-import { Logo } from "@/shared/ui/brand";
+import { ButtonLabel, Logo } from "@/shared/ui/brand";
 import { Button } from "@/shared/ui/primitives";
 
 import styles from "./Header.module.css";
@@ -70,7 +70,7 @@ export function Header() {
         <div className={styles.actions}>
           <Button asChild className={styles.cta} size="sm">
             <a href={builderUrl}>
-              <span>Начать сейчас</span>
+              <ButtonLabel tone="light">Начать сейчас</ButtonLabel>
             </a>
           </Button>
 
@@ -104,7 +104,7 @@ export function Header() {
         </div>
         <Button asChild className={styles.mobileCta}>
           <a href={builderUrl} onClick={() => setIsMenuOpen(false)}>
-            <span>Начать сейчас</span>
+            <ButtonLabel tone="light">Начать сейчас</ButtonLabel>
           </a>
         </Button>
       </nav>
