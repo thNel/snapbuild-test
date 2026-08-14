@@ -12,11 +12,13 @@
 }
 
 .workspace {
+  --workspace-border: #d5d5d8;
   display: grid;
   grid-template-columns: minmax(15rem, 0.3fr) minmax(0, 1fr);
   gap: 0;
   overflow: hidden;
   background: #ffffff;
+  border: 1px solid var(--workspace-border);
   border-radius: var(--radius-content-card);
 }
 
@@ -27,6 +29,7 @@
   padding: 1.5rem;
   color: #ffffff;
   background: #1d1d21;
+  border-right: 1px solid rgb(255 255 255 / 12%);
 }
 
 .sidebarHeader {
@@ -181,6 +184,8 @@
     min-height: 0;
     gap: calc(16 / 3.75 * 1vw);
     padding: calc(16 / 3.75 * 1vw);
+    border-right: 0;
+    border-bottom: 1px solid rgb(255 255 255 / 12%);
   }
 
   .sidebarHeader {
