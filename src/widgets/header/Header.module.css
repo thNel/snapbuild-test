@@ -16,12 +16,12 @@
   margin: 1rem auto 0;
   padding: 0.4375rem 0.5625rem 0.4375rem 0.875rem;
   pointer-events: auto;
-  background-color: rgb(255 255 255 / 80%);
+  background-color: rgb(255 255 255 / 68%);
   border: 1px solid transparent;
   border-radius: var(--radius-header);
   box-shadow: none;
-  backdrop-filter: blur(0.46875rem);
-  -webkit-backdrop-filter: blur(0.46875rem);
+  backdrop-filter: blur(0.25rem);
+  -webkit-backdrop-filter: blur(0.25rem);
   transition:
     background-color 300ms ease,
     border-color 300ms ease,
