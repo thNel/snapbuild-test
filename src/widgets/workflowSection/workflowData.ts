@@ -22,4 +22,18 @@ export const outputFormats: OutputFormatData[] = [
     status: "готово",
     tone: "violet",
   },
+  {
+    description: "Фирменная графика для социальных сетей и рекламных площадок.",
+    index: "04",
+    label: "Изображения",
+    status: "готово",
+    tone: "peach",
+  },
+  {
+    description: "Короткий ролик с единым визуальным языком во всех сценах.",
+    index: "05",
+    label: "Видео",
+    status: "готово",
+    tone: "pink",
+  },
 ];
