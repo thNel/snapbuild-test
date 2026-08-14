@@ -98,15 +98,15 @@ shadcn primitive -> brand primitive -> entity -> feature -> widget -> page
 
 - case-study и output rails используют drag/swipe без отдельных стрелочных контролов;
 - mock-кейсы демонстрационные и не являются подтверждёнными клиентскими результатами;
-- GitHub Pages workflow и публичная ссылка ещё не настроены в этом локальном репозитории.
+- GitHub Pages workflow добавлен, но URL станет доступен после первого успешного запуска workflow.
 
 ## Публикация
 
-Публикация на GitHub Pages — следующий release-шаг. Перед сдачей нужно добавить публичный
-GitHub remote и workflow, затем проверить страницу без авторизации по адресу вида:
+Публикация настроена через `.github/workflows/deploy-pages.yml`. После push в `main` GitHub
+соберёт `dist` и опубликует страницу без авторизации по адресу:
 
 ```text
-https://<username>.github.io/<project-name>/
+https://thnel.github.io/snapbuild-test/
 ```
 
 ## Проверки

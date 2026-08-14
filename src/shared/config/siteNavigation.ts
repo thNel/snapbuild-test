@@ -1,5 +1,6 @@
 export const fullNavigation = [
   { href: "#platform", label: "Платформа" },
+  { href: "#brand-consistency", label: "Дизайн-система" },
   { href: "#workflow", label: "Сценарии" },
   { href: "#use-cases", label: "Возможности" },
   { href: "#team-scenarios", label: "Команды" },
